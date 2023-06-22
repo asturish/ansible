@@ -1,0 +1,15 @@
+---                                                                                                                          
+- hosts: zorin
+  tasks:                                                                                                                     
+                                                                                                                             
+  - name: printing distro
+    debug:                                                                                                                   
+      msg: "my system distro is {{ ansible_distribution }}"
+
+  - name: printing distro description
+    debug:
+      msg: "{{ansible_lsb.description}}"
+
+  - name: printing package manager
+    debug:
+      msg: "{{ansible_pkg_mgr}}"

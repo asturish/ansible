@@ -1,0 +1,8 @@
+---
+- hosts:
+  become: true
+  tasks:
+
+  - name: Gather Facts
+    gather_facts:
+    debug: "The module gather_facts was not found in configured module paths. Additionally, core modules are missing. If this is a checkout, run 'git pull --rebase' to correct this problem."
