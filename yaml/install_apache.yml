@@ -4,7 +4,7 @@
 #  become: true
   tasks:
 
-  - name: Update repository index and install apache and php packages
+  - name: Update repository index and uninstall apache and php packages
     apt:
       name: 
         - apache2
