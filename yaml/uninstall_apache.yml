@@ -4,11 +4,11 @@
 #  become: true
   tasks:
 
-  - name: Update repository index and install apache and php packages
+  - name: Update repository index and uninstall apache and php packages
     apt:
       name: 
         - apache2
         - libapache2-mod-php
-      state: latest
+      state: absent
       update_cache: yes
     when: ansible_distribution in ["LMDE", "Zorin OS"]
