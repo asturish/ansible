@@ -1,0 +1,9 @@
+---
+- hosts:
+  become: true
+  tasks:
+
+  - name: Check last reboot time
+    shell:
+      cmd: 'who -b'
+  
