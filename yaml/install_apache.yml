@@ -4,12 +4,11 @@
 #  become: true
   tasks:
 
-  - name: update repository index
+  - name: Update repository index and install apache and php packages
     apt:
+      name: 
+        - apache2
+        - libapache2-mod-php
+      state: absent
       update_cache: yes
-    when: ansible_distribution == ["Zorin OS", "LMDE", "Ubuntu"]  
-
-  - name: install apache2 package
-    apt:
-      name: apache2
-      state: latest
+    when: ansible_distribution in ["LMDE", "Zorin OS"]
