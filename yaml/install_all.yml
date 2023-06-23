@@ -1,0 +1,33 @@
+---
+
+- hosts: all
+  become: true
+  pre_tasks:
+
+  - name: Install updates (Ubuntu, LMDE and Zorin OS servers)
+    apt:
+      upgrade: dist
+      update_cache: yes
+    when: ansible_distribution in ["Ubuntu", "LMDE", "Zorin OS"]
+
+- hosts: web_servers
+  become: true
+  tasks:
+
+  - name: Install apache and php for Zorin servers
+    apt:
+      name:
+        - apache2
+        - libapache2-mod-php
+      state: latest
+    when: ansible_distribution == "Zorin OS"
+
+- hosts: file_servers
+  become: true
+  tasks:
+
+  - name: Install file servers
+    package:
+      name: samba
+      state: latest
+    when: ansible_distribution == "LMDE"
