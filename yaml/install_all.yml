@@ -5,6 +5,7 @@
   pre_tasks:
 
   - name: Install updates (Ubuntu, LMDE and Zorin OS servers)
+    tags: always,cache,distro_update
     apt:
       upgrade: dist
       update_cache: yes
@@ -15,6 +16,7 @@
   tasks:
 
   - name: Install apache and php for Zorin servers
+    tags: zorin,apache,php
     apt:
       name:
         - apache2
@@ -27,6 +29,7 @@
   tasks:
 
   - name: Install file servers
+    tags: mint,samba
     package:
       name: samba
       state: latest
