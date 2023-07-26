@@ -1,6 +1,6 @@
 ---
 
-- hosts: all
+- hosts: web_servers
   become: true
   tasks:
 
@@ -17,7 +17,7 @@
   - name: copy default html file for site
     tags: apache,php,zorin
     copy:
-      src: files/default_site.html
+      src: /home/neil/ansible/files/default_site.html
       dest: /var/www/html/index.html
       owner: root
       group: root
